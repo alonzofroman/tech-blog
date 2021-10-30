@@ -5,11 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>Tech Blog</title>
 </head>
 <body>
-    <header id="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Tech-Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Dashboard</a>
+        {{#if loggedIn}}
+         <a class="nav-item nav-link" href="/logout">Logout</a>
+        {{else}}
+        <a class="nav-item nav-link" href="/login">Login</a>
+        {{/if}}
+        </div>
+    </div>
+    </nav>
+    {{!-- <header id="header">
         <h1>The Tech-Blog</h1>
         <a href="/">Home</a>
         <a href="#">Dashboard</a>
@@ -18,7 +35,7 @@
         {{else}}
         <a href="#">Login</a>
         {{/if}}
-    </header>
+    </header> --}}
 
 
 <div id="main">
