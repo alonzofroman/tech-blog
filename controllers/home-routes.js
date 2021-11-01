@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
             include: [{ model: User, attributes: ['username']}],
         });
         const posts = postData.map(post => post.get({plain:true}));
-        res.render('homepage', {posts});
+        res.render('homepage', {posts, loggedIn: req.session.loggedIn});
         console.log('posts grabbed');
     } catch (err) {
         console.log(err);
@@ -25,7 +25,7 @@ router.get('/post/:id', async (req, res) => {
         { model: Comment, attributes: ['content']}],
         });
         const post = postData.map((post) => post.get({plain:true}));
-        res.render('post', {post})
+        res.render('post', {post, loggedIn: req.session.loggedIn})
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
