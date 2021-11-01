@@ -3,22 +3,23 @@ const loginForm = async (event) => {
 
     const email = document.querySelector("#email-login").value.trim();
     const password = document.querySelector("#password-login").value.trim();
-    if (email && password) {
-        const response = await fetch('api/users/login', {
-            method: 'POST',
-            body: JSON.stringify({
-                email, password
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        if (response.ok) {
-            document.location.replace('/');
+    if (!email || !password) {
+        alert('Fill out both fields');
+        return;
+    }
+    const response = await fetch('/api/users/login', { method: 'POST',
+        body: JSON.stringify({
+            email, password
+        }),
+        headers: {
+            'Content-Type': 'application/json'
         }
-        else {
-            alert('Login failure');
-        }
+    });
+    if (response.ok) {
+        document.location.replace('/');
+    }
+    else {
+        alert('Login failure');
     }
 };
 
@@ -47,5 +48,5 @@ const signUpForm = async (event) => {
     }
 };
 
-document.querySelector(".login-form").addEventListener('submit', loginForm);
+document.querySelector("#login-form").addEventListener('submit', loginForm);
 document.querySelector('.signup-form').addEventListener('submit', signUpForm);
