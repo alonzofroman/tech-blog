@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
+const redirect = require('../utils/redirect');
 
 // Homepage
 // Get posts
@@ -44,18 +45,32 @@ router.get('/login', (req, res) => {
 });
 
 // Dashboard 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', redirect, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
-            include: [{model:Post, attributes: ['title', 'content']}],
+            include: [{model:Post, attributes: ['id', 'title', 'content']}],
         });
-        const user = userData.get({plain:true});
+        console.log(userData);
+        const user = await userData.get({plain:true});
         res.render('dashboard', {user, loggedIn: req.session.loggedIn});
     } catch (err) {
         console.log(err);
         res.status(500).json(err)
     }
 });
+
+// Edit post
+router.get('/post/editPost/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {where: {user_id: req.session.id}});
+        const post = await postData.get({plain:true});
+        res.render('edit-post', {post, loggedIn: req.session.loggedIn});
+    } catch(err) {
+        console.log(err);
+        res.status(500).json(err)
+    }
+});
+
 
 
 module.exports = router;

@@ -10,7 +10,8 @@
     <div class="card-body">
         <p>{{post.content}}</p>
         <p>Post by: {{user.username}}</p>
-        <a href="/post/{{post.id}}">View Post</a>
+        <a href="/post/{{id}}">View Post</a>
+        <a href="/post/editPost/{{id}}">Edit Post</a>
     </div>
     </div>
     {{/each}}
