@@ -33,19 +33,6 @@ router.get('/post/:id', async (req, res) => {
     }
 });
 
-// Create new comment
-router.post('/post/:id', async (req, res) => {
-    try {
-        const newComment = await Comment.create({
-            content: req.body.content,
-            user_id: req.session.user_id,
-            post_id: req.params.id,
-        });
-        res.status(200).json(newComment);
-    } catch (err) {
-        res.status(400).json(err);
-    }
-});
 
 // Login
 router.get('/login', (req, res) => {

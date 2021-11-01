@@ -3,7 +3,7 @@ const commentForm = async (event) => {
 
     const content = document.querySelector("#new-comment").value.trim();
     if (content) {
-        const response = await fetch('/post/:id', {
+        const response = await fetch(`/api/post/${document.location.href[document.location.href.length-1]}`, {
             method: 'POST',
             body: JSON.stringify({content}),
             headers: {'Content-Type': 'application/json'}
