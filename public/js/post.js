@@ -15,4 +15,13 @@ const postForm = async (event) => {
     response.ok? document.location.replace('/dashboard'): alert('Failed to update');
 };
 
+const deletePost = async () => {
+    const response = await fetch(`/api/post/${document.location.href[document.location.href.length-1]}`, {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'}
+    });
+    response.ok? document.location.replace('/dashboard'): alert('Failed to delete');
+};
+
+document.querySelector("#delete-button").addEventListener('click', deletePost);
 document.querySelector("#submit-form").addEventListener('click', postForm);
