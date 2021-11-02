@@ -1,6 +1,6 @@
 <br>
 <div class="card">
-    <div class="d-flex justify-content-center card-header">
+    <div class="d-flex justify-content-center card-header bg-secondary">
         <p>{{post.title}}</p>
     </div>
     <div class="class-body">
@@ -12,8 +12,10 @@
 
 {{#each post.comments as |comment|}}
 <div class="card">
-    <div class="card-body">
+    <div class="card-header bg-secondary">
         <p>Comment by: {{comment.user.username}} on {{format_date comment.date_created}}</p>
+    </div>
+    <div class="card-body">
         <p>{{comment.content}}</p>
     </div>
 </div>
