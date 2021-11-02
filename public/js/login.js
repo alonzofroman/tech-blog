@@ -16,7 +16,7 @@ const loginForm = async (event) => {
         }
     });
     if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/dashboard');
     }
     else {
         alert('Login failure');
@@ -40,7 +40,7 @@ const signUpForm = async (event) => {
             }
         });
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard');
         }
         else {
             alert('Failed to signup');
