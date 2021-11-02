@@ -1,4 +1,5 @@
 const postForm = async (event) => {
+    
     event.preventDefault();
 
     const title = document.querySelectorAll("#update-post input")[0].value.trim();

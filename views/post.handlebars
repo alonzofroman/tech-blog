@@ -1,10 +1,11 @@
+<br>
 <div class="card">
     <div class="d-flex justify-content-center card-header">
         <p>{{post.title}}</p>
     </div>
     <div class="class-body">
         <p>{{post.content}}</p>
-        <p>Post By: {{post.user.username}}</p>
+        <p>Post By: {{post.user.username}} on {{format_date post.date_created}}</p>
     </div>
 </div>
 <br>
@@ -12,7 +13,7 @@
 {{#each post.comments as |comment|}}
 <div class="card">
     <div class="card-body">
-        <p>{{comment.user.username}}</p>
+        <p>Comment by: {{comment.user.username}} on {{format_date comment.date_created}}</p>
         <p>{{comment.content}}</p>
     </div>
 </div>

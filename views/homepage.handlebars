@@ -7,7 +7,7 @@
 
     <div class="card-body">
         <p>{{post.content}}</p>
-        <p>Post by: {{user.username}}</p>
+        <p>Post by: {{user.username}} on {{format_date post.date_created}}</p>
         <a href="/post/{{post.id}}">View Post</a>
     </div>
 </div>
