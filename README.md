@@ -8,6 +8,7 @@ Alonzo Roman
 * [Code](#Code-Snippet)
 * [Technologies](#Technologies)
 * [Contact](#Contact-Links)
+* [Acknowledgements](#Acknowledgements)
 
 ## Summary
 The purpose of this project is to create a a tech blog. Users are able to log into accounts and create posts and comments onto the page. The site utilizes express, mySQL, sequelize and handlebars for the users and posts to be stored in the database. 
@@ -50,7 +51,7 @@ const postForm = async (event) => {
 - [Github](https://github.com/alonzofroman)
 - [LinkedIn](https://www.linkedin.com/in/alonzo-roman/")
 
-## Resources/Acknowledgements 
+## Acknowledgements 
 
 - [W3Schools](https://www.w3schools.com/)
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
